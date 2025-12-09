@@ -39,7 +39,6 @@ jobs:
       - name: "setting up plumed"
         working-directory: ./plumed
         run: |
-         cd plumed
          ./configure
          find src -type f -name '*.h' -exec cp --parents '{}' -t ../plumedVersion ';'
       - name: index page

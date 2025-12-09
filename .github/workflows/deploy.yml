@@ -31,7 +31,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Checkout tools repo
+      - name: Checkout a plumed repo
         uses: actions/checkout@v6
         with:
           repository: plumed/plumed2
@@ -43,7 +43,7 @@ jobs:
          find src -type f -name '*.h' -exec cp --parents '{}' -t ../plumedVersion ';'
       - name: index page
         working-directory: ./plumedVersion
-        run: echo "Welcome" > /index.html
+        run: echo "Welcome" > index.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

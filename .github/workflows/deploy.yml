@@ -36,11 +36,15 @@ jobs:
         with:
           repository: plumed/plumed2
           path: plumed
-      - run: |
+      - name: "setting up plumed"
+        working-directory: ./plumed
+        run: |
          cd plumed
          ./configure
          find src -type f -name '*.h' -exec cp --parents '{}' -t ../plumedVersion ';'
-      - run: echo "Welcome" >  plumedVersion/index.html
+      - name: index page
+        working-directory: ./plumedVersion
+        run: echo "Welcome" > /index.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

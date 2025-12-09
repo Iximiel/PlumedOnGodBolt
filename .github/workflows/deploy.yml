@@ -40,6 +40,7 @@ jobs:
         working-directory: ./plumed
         run: |
          ./configure
+         mkdir ../plumedVersion
          find src -type f -name '*.h' -exec cp --parents '{}' -t ../plumedVersion ';'
       - name: index page
         working-directory: ./plumedVersion

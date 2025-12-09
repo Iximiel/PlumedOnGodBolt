@@ -39,14 +39,14 @@ jobs:
       - run: |
          cd plumed
          ./configure
-         cp -rv  src ../ 
+         find src -type f -name '*.h' -exec cp --parents '{}' -t ../plumedVersion ';'
+      - run: echo "Welcome" >  plumedVersion/index.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          path: './plumedVersion'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
